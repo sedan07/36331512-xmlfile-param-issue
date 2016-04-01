@@ -5,13 +5,13 @@ file { $staging_windir:
 }
 
 node default {
-  xmlfile { "C:/Path To Existing XML File/config.xml":
+  xmlfile { "C:/Program Files/Amazon/Ec2ConfigService/Settings/config.xml":
     ensure                => present,
     use_existing_file => true,
   }
 
   xmlfile_modification { "test" :
-    file        => "C:/Path To Existing XML File/config.xml",
-    changes => 'set /Someconfig/State "Enabled"',
+    file        => "C:/Program Files/Amazon/Ec2ConfigService/Settings/config.xml",
+    changes => 'set /Ec2ConfigurationSettings/Plugins/Plugin[Name = "Ec2DynamicBootVolumeSize"]/State "Enabled"',
   }
 }
